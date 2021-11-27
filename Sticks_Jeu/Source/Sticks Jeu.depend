@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1483613836 source:c:\users\dz sql injectionner\desktop\sticks jeu\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1483615043 source:c:\users\dz sql injectionner\desktop\source\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1485349347 source:c:\users\dz sql injectionner\desktop\sticks_jeu\source\main.c
+	<stdio.h>
+	<stdlib.h>
+

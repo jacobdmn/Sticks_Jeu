@@ -1,0 +1,134 @@
+﻿Algorithme Sticks_Jeu;
+|
+|  variables x:entier
+|
+Fonction getLvl():entier
+|  varialbles niveau:entier
+|  Début:
+|  |  ecrire("Voici le jou des sticks:
+|  |  l'expression de ce jou se trouve dans le
+|  |  programme")
+|  |  ecrire("Il y a 3 niveaux dans ce jou:")
+|  |  ecrire("1-Facile 2-Moyenne 3-Defficile")
+|  |  ecrire("Entrer Votre Choix:")
+|  |  lire(niveau)
+|  Fin
+Fin Fonction
+|
+Fonction howStart():entier
+|  variables joueur:entier
+|  Début
+|  |  ecrire("Qui Commence ? 0-PC 1-Vous")
+|  |  lire(joueur)
+|  Fin
+FinFonction
+
+Procedure Init()
+|  variables n,niveau: entier
+|  Début:
+|  |  n ← random()%30+21
+|  |  niveau ← getLvl()
+|  |  ecrire("On prend ",n," sticks: ")
+|  |  |
+|  |  Si(niveau=1) alors
+|  |  |  Facile(n,howStart())
+|  |  Sinon
+|  |  |  Si(niveau=2)
+|  |  |  |  Moyenne(n,howStart());
+|  |  |  Sinon
+|  |  |  |  Defficile(n,howStart());
+|  |  FinSi
+|  Fin
+FinFonction
+|
+Procedure Facile(n:entier,joueur:entier)  
+|  Début:
+|  |  Tanque(n>1) faire
+|  |  |  ecrire("Il y a ",n," Alumettes")
+|  |  |  Si(joueur=0) alors
+|  |  |  |  x ← rand()%3 + 1
+|  |  |  |  ecrire("J'enleve ",x)
+|  |  |  Sinon
+|  |  |  |  ecrire("Votre coup : ")
+|  |  |  |  lire(x)
+|  |  |  FinSi
+|  |  |  n-=x
+|  |  |  joueur=!joueur
+|  |  FinTanque
+|  |  detect_Rslt(joueur);
+|  Fin
+FinProcedure
+|
+Procedure Moyenne(n:entier,joueur:entier)
+|  Début:
+|  |   Tanque(n>1) faire
+|  |  |  ecrire("Il y a ",n," Alumettes")
+|  |  |  Si(joueur=0) alors
+|  |  |  |  x ← n % 4
+|  |  |  |  Si(n>10) alors
+|  |  |  |  |  Si(x=0 Ou x=2) alors
+|  |  |  |  |  |  x ← 1
+|  |  |  |  |  Sinon Si(x=1) alors
+|  |  |  |  |  |  x ← 3
+|  |  |  |  |  FinSi
+|  |  |  |  SinonSi(x>9) alors
+|  |  |  |  |  Si(x=0) alors
+|  |  |  |  |  |  x ← 3
+|  |  |  |  |  SinonSi(x=3) alors
+|  |  |  |  |  |  x ← 2
+|  |  |  |  |  SinonSi(x=2) alors
+|  |  |  |  |  |  x ← 1
+|  |  |  |  |  FinSi
+|  |  |  |  FinSi
+|  |  |  |  ecrire("J'enleve ",x)
+|  |  |  Sinon
+|  |  |  |  ecrire("Votre coup : ")
+|  |  |  |  lire(x)
+|  |  |  FinSi
+|  |  |  n-=x
+|  |  |  joueur=!joueur
+|  |  FinTanque
+|  |  detect_Rslt(joueur);
+|  Fin
+FinProcedure
+|
+Procedure Defficile(n:entier,joueur:entier)
+|  Début:
+|  |   Tanque(n>1) faire
+|  |  |  ecrire("Il y a ",n," Alumettes")
+|  |  |  Si(joueur=0) alors
+|  |  |  |  x ← n mod 4
+|  |  |  |  Si(x=1 Ou x=3) alors
+|  |  |  |  |  x ← 2
+|  |  |  |  Sinon Si(x=2) alors
+|  |  |  |  |  x ← 1
+|  |  |  |  Sinon Si(x=0) alors
+|  |  |  |  |  x ← 3
+|  |  |  |  FinSi
+|  |  |  |  ecrire("J'enleve ",x)
+|  |  |  Sinon
+|  |  |  |  ecrire("Votre coup : ")
+|  |  |  |  lire(x)
+|  |  |  FinSi
+|  |  |  n-=x
+|  |  |  joueur=!joueur
+|  |  FinTanque
+|  |  detect_Rslt(joueur);
+|  Fin
+FinProcedure
+|
+Procedure detect_Rslt(joueur:entier)
+|
+|  Début
+|  |  Si(joueur=1) alors
+|  |  |  ecrire("Game Over !")
+|  |  Sinon
+|  |  |  ecrire("Bravo !")
+|  |  FinSi
+|  Fin
+|
+FinProcedure
+|  
+Début:
+|  Init()
+Fin
